@@ -9,16 +9,13 @@ const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
 mongoose
-	.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
+	.connect(process.env.MONGO_URI, {})
 	.then(() => console.log("Connected to MongoDB"))
 	.catch((err) => console.log(err));
 
 //Import Routes
 const authRoute = require("./routes/auth");
-const todoRoutes = require("./routes/todo");
+const todoRoutes = require("./routes/todos");
 
 // Use Routes
 app.use("/api/user", authRoute);
